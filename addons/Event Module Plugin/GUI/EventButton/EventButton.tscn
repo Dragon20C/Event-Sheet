@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm4mky2281u05"]
+
+[ext_resource type="Texture2D" uid="uid://cmikdoq2aaso0" path="res://icon.png" id="1_7jxlf"]
+[ext_resource type="Script" path="res://addons/Event Module Plugin/UtilScripts/EventButton/event_button.gd" id="1_r070u"]
+
+[node name="EventButton" type="Button"]
+custom_minimum_size = Vector2(200, 30)
+offset_right = 129.0
+offset_bottom = 40.0
+script = ExtResource("1_r070u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_7jxlf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Group" type="Label" parent="MarginContainer/HBoxContainer/HSplitContainer"]
+layout_mode = 2
+text = "Group"
+
+[node name="Condition" type="Label" parent="MarginContainer/HBoxContainer/HSplitContainer"]
+layout_mode = 2
+text = "Condition"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

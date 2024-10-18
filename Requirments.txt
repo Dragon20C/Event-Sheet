@@ -1,0 +1,57 @@
+### What an Event Sheet Is:
+
+- **Visual logic system**: Organizes game logic without the need for traditional coding.
+- **Event-Action structure**: Events are conditions that, when met, trigger actions.
+- **Conditions**: The "if" part of logic, checking for specific game states or inputs (e.g., collision, key press).
+- **Actions**: Executed when conditions are true (e.g., moving a character, changing health).
+- **Sub-events**: Nested events that run if the parent event is true, allowing complex behaviors.
+- **Variables**: Store data (e.g., scores, player health) that can be modified or checked in events.
+- **Event Groups**: Organize events into groups, which can be enabled or disabled based on the game state.
+- **Loops**: Repeat actions or events (e.g., spawn multiple enemies).
+- **Functions**: Reusable blocks of logic for efficiency and cleaner design.
+- **Top-down execution**: Events are processed in the order they appear in the sheet.
+
+### How to Implement Event Sheets in Your Own Game Engine:
+
+1. **Create an Event Manager System**:
+   - Build a system to manage events (conditions) and actions.
+   - Each event has a list of conditions and a list of actions tied to it.
+
+2. **Define Event and Action Structures**:
+   - **Event**: Has conditions to check (e.g., "Is the player pressing a button?").
+   - **Action**: What happens when the conditions are true (e.g., "Move the player").
+   - Use a base class/interface for events and actions for extensibility.
+
+3. **Create Conditions**:
+   - Implement a system to evaluate conditions, such as checking input states, collision detection, or timers.
+   - Conditions could be functions that return a boolean (e.g., `is_key_pressed()` or `is_colliding()`).
+
+4. **Develop Actions**:
+   - Define various actions like moving an object, changing a variable, or playing a sound.
+   - Each action should be a function or a command that modifies game objects or states.
+
+5. **Event Processing Loop**:
+   - Every game frame, check each event in the event sheet.
+   - Evaluate the conditions for each event.
+   - If all conditions are met, execute the corresponding actions.
+
+6. **Add Sub-Events**:
+   - Allow events to have sub-events, creating hierarchical relationships between events.
+   - Sub-events are checked and executed only if the parent event’s conditions are true.
+
+7. **Implement Variables**:
+   - Add support for global and local variables that can be used in conditions or modified by actions.
+   - Store variables for things like player health, scores, or enemy states.
+
+8. **Create Event Groups**:
+   - Build a way to organize events into groups, with the ability to enable/disable entire groups based on game state (e.g., pause menu, cutscenes).
+
+9. **Add Loops and Iterations**:
+   - Implement loop conditions, such as for-loops and while-loops, to repeat actions multiple times (e.g., spawn enemies in a wave).
+
+10. **Functions for Reusability**:
+   - Create reusable functions or macros that encapsulate common event-action patterns (e.g., spawn multiple objects, reset player position).
+
+11. **Build a Visual Editor (Optional)**:
+   - Design a drag-and-drop interface for the event system, making it easier to build event sheets visually.
+   - Use UI components to represent events, conditions, and actions.

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://du8s1e7hcbg8b"]
+
+[ext_resource type="PackedScene" uid="uid://dm4mky2281u05" path="res://addons/Event Module Plugin/GUI/EventButton/EventButton.tscn" id="1_6ubsy"]
+
+[node name="EventWindow" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="EventBar" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/EventBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EventButton" parent="ScrollContainer/MarginContainer/VBoxContainer/EventBar/HBoxContainer" instance=ExtResource("1_6ubsy")]
+layout_mode = 2
