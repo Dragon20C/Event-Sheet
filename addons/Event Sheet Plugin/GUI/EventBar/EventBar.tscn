@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce1o6g0cjteoc"]
+[gd_scene load_steps=5 format=3 uid="uid://ce1o6g0cjteoc"]
+
+[ext_resource type="Script" path="res://addons/Event Sheet Plugin/GUI/EventBar/event_panel.gd" id="1_ofaim"]
+[ext_resource type="PackedScene" uid="uid://dm4mky2281u05" path="res://addons/Event Sheet Plugin/GUI/EventButton/EventButton.tscn" id="1_yu73u"]
+[ext_resource type="PackedScene" uid="uid://bj2eol3uxmyqt" path="res://addons/Event Sheet Plugin/GUI/ActionBar/action_button.tscn" id="2_1sfwj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bahiy"]
 bg_color = Color(0.192083, 0.229945, 0.311221, 1)
@@ -13,10 +17,13 @@ custom_minimum_size = Vector2(0, 60)
 offset_right = 1280.0
 offset_bottom = 60.0
 size_flags_vertical = 3
+mouse_filter = 0
+script = ExtResource("1_ofaim")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bahiy")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
@@ -25,19 +32,31 @@ split_offset = 250
 
 [node name="Group" type="PanelContainer" parent="HSplitContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Group"]
 layout_mode = 2
 
+[node name="EventButton" parent="HSplitContainer/Group/VBoxContainer" instance=ExtResource("1_yu73u")]
+layout_mode = 2
+
 [node name="Action" type="PanelContainer" parent="HSplitContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Action"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="HSplitContainer/Action/VBoxContainer"]
+[node name="ActionButton" parent="HSplitContainer/Action/VBoxContainer" instance=ExtResource("2_1sfwj")]
+layout_mode = 2
+
+[node name="AddAction" type="Button" parent="HSplitContainer/Action/VBoxContainer"]
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
+theme_override_colors/font_color = Color(0.340339, 0.340339, 0.340339, 1)
 text = "+ Add action"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

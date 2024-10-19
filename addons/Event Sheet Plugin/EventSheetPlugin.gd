@@ -2,28 +2,28 @@
 extends EditorPlugin
 
 
-const EventWindow = preload("res://addons/Event Module Plugin/GUI/EventWindow.tscn")
-var event_window : Control
+const _EventSheet = preload("res://addons/Event Sheet Plugin/GUI/EventSheet/EventSheet.tscn")
+var event_sheet : Control
 
 
 func _enter_tree():
-	event_window = EventWindow.instantiate()
+	event_sheet = _EventSheet.instantiate()
 	# Add the main panel to the editor's main viewport.
-	EditorInterface.get_editor_main_screen().add_child(event_window)
+	EditorInterface.get_editor_main_screen().add_child(event_sheet)
 	# Hide the main panel. Very much required.
 	_make_visible(false)
 
 
 func _exit_tree():
-	if event_window:
-		event_window.queue_free()
+	if event_sheet:
+		event_sheet.queue_free()
 
 func _has_main_screen():
 	return true
 
 func _make_visible(visible):
-	if event_window:
-		event_window.visible = visible
+	if event_sheet:
+		event_sheet.visible = visible
 
 
 func _get_plugin_name():

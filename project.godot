@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Event Module"
+config/name="Event Sheet"
 run/main_scene="res://Demo/demo.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
@@ -22,4 +22,8 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/kenyoni/plugin_reloader/plugin.cfg")
+enabled=PackedStringArray("res://addons/Event Sheet Plugin/plugin.cfg", "res://addons/kenyoni/plugin_reloader/plugin.cfg")
+
+[godots]
+
+version_hint=""
