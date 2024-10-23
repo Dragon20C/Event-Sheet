@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://41ah8two3db"]
+
+[ext_resource type="Script" path="res://addons/Event Sheet Plugin/Elements/Condition_block/condition_block.gd" id="1_ghi6i"]
+[ext_resource type="Texture2D" uid="uid://7ji5n1tfr2lf" path="res://icon.png" id="1_v2eui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vygrf"]
+bg_color = Color(0.691357, 0.691357, 0.691357, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wxet"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23vw7"]
+bg_color = Color(0.691357, 0.691357, 0.691357, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="ConditionBlock" type="Button"]
+custom_minimum_size = Vector2(200, 45)
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vygrf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wxet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_23vw7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wxet")
+script = ExtResource("1_ghi6i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_v2eui")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Group" type="Label" parent="MarginContainer/HBoxContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.00392157, 0.678431, 0.784314, 1)
+text = "Group"
+
+[node name="Condition" type="Label" parent="MarginContainer/HBoxContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.593134, 0.593134, 0.593134, 1)
+text = "Condition"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

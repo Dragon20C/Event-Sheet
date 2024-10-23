@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://df5sxvxmp7usl"]
+
+[ext_resource type="Script" path="res://addons/Event Sheet Plugin/Elements/Event_block/event_block.gd" id="1_ip0qm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nduj5"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 14
+
+[node name="EventBlock" type="MarginContainer" node_paths=PackedStringArray("condition_blk_container", "action_blk_container", "add_action_button")]
+custom_minimum_size = Vector2(0, 60)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 62.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_ip0qm")
+condition_blk_container = NodePath("HSplitContainer/Group/VBoxContainer")
+action_blk_container = NodePath("HSplitContainer/Action/VBoxContainer")
+add_action_button = NodePath("HSplitContainer/Action/VBoxContainer/AddAction")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nduj5")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+split_offset = 250
+
+[node name="Group" type="MarginContainer" parent="HSplitContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Group"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Action" type="MarginContainer" parent="HSplitContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Action"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="AddAction" type="Button" parent="HSplitContainer/Action/VBoxContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme_override_colors/font_pressed_color = Color(0.67069, 0.67069, 0.67069, 1)
+theme_override_colors/font_color = Color(0.593134, 0.593134, 0.593134, 1)
+text = "+ Add action"
+flat = true
+
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
+[connection signal="pressed" from="HSplitContainer/Action/VBoxContainer/AddAction" to="." method="_on_add_action_pressed"]

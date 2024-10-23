@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 
-const _EventSheet = preload("res://addons/Event Sheet Plugin/GUI/EventSheet/EventSheet.tscn")
+const _EventSheet = preload("res://addons/Event Sheet Plugin/Elements/Event_sheet/Event_sheet.tscn")
 var event_sheet : Control
 
 

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://j6wvbqyeafcq"]
+
+[ext_resource type="Script" path="res://addons/Event Sheet Plugin/Elements/Action_block/action_block.gd" id="1_62aht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5o5j"]
+bg_color = Color(0.691357, 0.691357, 0.691357, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy6cy"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af4ic"]
+bg_color = Color(0.691357, 0.691357, 0.691357, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coemg"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[node name="ActionBlock" type="Button"]
+custom_minimum_size = Vector2(0, 30)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_i5o5j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cy6cy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_af4ic")
+theme_override_styles/normal = SubResource("StyleBoxFlat_coemg")
+script = ExtResource("1_62aht")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+split_offset = 75
+
+[node name="Group" type="Label" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.00392157, 0.678431, 0.784314, 1)
+text = "Group"
+
+[node name="ActionDetails" type="Label" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+text = "Action Details"
