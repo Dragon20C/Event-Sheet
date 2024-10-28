@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://bwxvij1tie8mr"]
+
+[ext_resource type="Script" path="res://addons/Event Sheet Plugin/Scripts/Action_class.gd" id="1_jyntb"]
+[ext_resource type="Texture2D" uid="uid://7ji5n1tfr2lf" path="res://icon.png" id="1_nc16v"]
+
+[resource]
+script = ExtResource("1_jyntb")
+title = "print"
+icon = ExtResource("1_nc16v")
+parameters = {
+"Input": ""
+}
+description = "Prints a message to the console"

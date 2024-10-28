@@ -26,6 +26,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cy6cy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_af4ic")
 theme_override_styles/normal = SubResource("StyleBoxFlat_coemg")
 script = ExtResource("1_62aht")
+action = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -48,3 +49,5 @@ text = "Group"
 [node name="ActionDetails" type="Label" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
 text = "Action Details"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

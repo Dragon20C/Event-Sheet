@@ -64,9 +64,37 @@ func _on_popup_menu_index_pressed(index: int) -> void:
 				3:
 					delete_event_blk()
 		"event":
-			pass
+			match index:
+				0:
+					edit_event()
+				1:
+					add_event()
+				2:
+					delete_event()
 		"action":
-			pass
+			match index:
+				0:
+					edit_action()
+				1:
+					add_action()
+				2:
+					delete_action()
+
+func delete_event() -> void:
+	action_block.queue_free()
+	print("Deleted the event")
+	
+func delete_action() -> void:
+	condition_block.queue_free()
+	print("Deleted the action")
+
+func edit_event() -> void:
+	#condition_block
+	print("Edited the event!")
+
+func edit_action() -> void:
+	#action_block
+	print("edited the action!")
 
 func add_event() -> void:
 	event_block.add_condition_block()

@@ -3,6 +3,8 @@ extends MarginContainer
 class_name EventBlock
 
 signal event_block_options(event_block : EventBlock)
+signal condition_options(condition : ConditionBlock)
+signal action_options(action : ActionBlock)
 
 @export var condition_blk_container :VBoxContainer
 @export var action_blk_container : VBoxContainer
@@ -33,10 +35,12 @@ func _on_add_action_pressed() -> void:
 
 func add_condition_block() -> void:
 	var blank_condition : ConditionBlock = blank_condition_blk.instantiate()
+	blank_condition.event_block = self
 	condition_blk_container.add_child(blank_condition)
 
 # in the future this would also need to add the action
 func add_action_block() -> void:
 	var blank_action : ActionBlock = blank_action_blk.instantiate()
+	blank_action.event_block = self
 	action_blk_container.add_child(blank_action)
 	action_blk_container.move_child(add_action_button,-1)

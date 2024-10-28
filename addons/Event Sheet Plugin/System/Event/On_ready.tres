@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Event" load_steps=3 format=3 uid="uid://cp4g80i278fln"]
+
+[ext_resource type="Texture2D" uid="uid://7ji5n1tfr2lf" path="res://icon.png" id="1_8tckv"]
+[ext_resource type="Script" path="res://addons/Event Sheet Plugin/Scripts/Event_class.gd" id="1_nuv6p"]
+
+[resource]
+script = ExtResource("1_nuv6p")
+title = "on_ready"
+icon = ExtResource("1_8tckv")
+parameters = {}
+description = "called when the node is ready."

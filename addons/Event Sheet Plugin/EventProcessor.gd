@@ -1,7 +1,7 @@
 @tool
 extends Node
-class_name EventProcessor
+# EventProcessor
 
 func _ready() -> void:
 	if !Engine.is_editor_hint():
-		print("Doing gods work!")
+		print("event processer ready!")
