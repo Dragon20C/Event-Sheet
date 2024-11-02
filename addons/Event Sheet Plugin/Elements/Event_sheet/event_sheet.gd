@@ -64,12 +64,13 @@ func _on_popup_menu_index_pressed(index: int) -> void:
 				3:
 					delete_event_blk()
 		"event":
+			print("Yay Event!")
 			match index:
 				0:
 					edit_event()
 				1:
 					add_event()
-				2:
+				3:
 					delete_event()
 		"action":
 			match index:
@@ -77,15 +78,15 @@ func _on_popup_menu_index_pressed(index: int) -> void:
 					edit_action()
 				1:
 					add_action()
-				2:
+				3:
 					delete_action()
 
 func delete_event() -> void:
-	action_block.queue_free()
+	condition_block.queue_free()
 	print("Deleted the event")
 	
 func delete_action() -> void:
-	condition_block.queue_free()
+	action_block.queue_free()
 	print("Deleted the action")
 
 func edit_event() -> void:
@@ -106,6 +107,7 @@ func add_action() -> void:
 
 func add_blank_event_blk() -> void:
 	var blank_block : EventBlock = blank_event_blk.instantiate()
+	blank_block.event_sheet = self
 	blank_block.event_block_options.connect(handle_event_block_signal)
 	event_block_container.add_child(blank_block)
 

@@ -7,5 +7,4 @@ class_name ActionBlock
 
 
 func _on_pressed() -> void:
-	print("Action block pressed")
 	event_block.action_options.emit(self)

@@ -30,8 +30,9 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vygrf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0wxet")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_23vw7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0wxet")
+action_mode = 0
+button_mask = 2
 script = ExtResource("1_ghi6i")
-condition = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

@@ -22,6 +22,11 @@ signal action_options(action : ActionBlock)
 @export var events : Array
 @export var actions : Array
 
+var event_sheet : EventSheet
+
+func _ready() -> void:
+	condition_options.connect(handle_condition_popup)
+	action_options.connect(handle_action_popup)
 
 func _on_panel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -44,3 +49,11 @@ func add_action_block() -> void:
 	blank_action.event_block = self
 	action_blk_container.add_child(blank_action)
 	action_blk_container.move_child(add_action_button,-1)
+
+func handle_action_popup(action : ActionBlock) -> void:
+	event_sheet.action_block = action
+	event_sheet.handle_popup("action")
+
+func handle_condition_popup(condition : ConditionBlock) -> void:
+	event_sheet.condition_block = condition
+	event_sheet.handle_popup("event")

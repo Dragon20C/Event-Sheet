@@ -7,5 +7,4 @@ class_name ConditionBlock
 
 
 func _on_pressed() -> void:
-	print("Condition block pressed!")
 	event_block.condition_options.emit(self)
